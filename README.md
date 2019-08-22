@@ -9,7 +9,7 @@ Installation
 This package is available via pip and requires Python 3. Simply run the following (optionally within a virtual environment).
 
 ```
-$ pip install wandb_summary
+$ pip install wandb_summarizer
 ```
 
 <br>
@@ -19,10 +19,10 @@ Usage
 This package is usable via the command line or from another Python script. The command line tool takes the following form:
 
 ```
-$ wandb-summary-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]
+$ wandb-summarizer-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]
 ```
 
-Most uses of the microlibrary from another Python script will want to use `wandb_summary.download.get_results` which takes the following parameters:
+Most uses of the microlibrary from another Python script will want to use `wandb_summarizer.download.get_results` which takes the following parameters:
 
  - `project_name` (str): The name of the project to be downloaded. Should be of form username/project.
  - `query_param` (str): [The mongo-like selector](https://docs.wandb.com/docs/integrations/api.html#querying-runs) to be used in filtering runs. If not provided or None, will download all runs. Defaults to None.

@@ -17,9 +17,9 @@ import json
 import logging
 import sys
 
-import wandb_summary.download
+import wandb_summarizer.download
 
-USAGE_STR = 'wandb-summary-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]'
+USAGE_STR = 'wandb-summarizer-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]'
 MIN_NUM_ARGS = 2
 MAX_NUM_ARGS = 4
 TRUE_VALUES = ['y', 't', 'yes', 'true']
@@ -85,7 +85,7 @@ def main():
     else:
         query_param = {}
 
-    run_info = wandb_summary.download.get_results(
+    run_info = wandb_summarizer.download.get_results(
         project_name,
         query_param=query_param,
         logger=logger
