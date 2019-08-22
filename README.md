@@ -9,7 +9,7 @@ Installation
 This package is available via pip and requires Python 3. Simply run the following (optionally within a virtual environment).
 
 ```
-$ pip install wandb_summarizer
+$ pip install git+https://github.com/sampottinger/wandb_summarizer.git
 ```
 
 <br>
