@@ -31,19 +31,6 @@ Most uses of the microlibrary from another Python script will want to use `wandb
 
 <br>
 
-
-Purpose
-----------------------------------------------------------------------------------------------------
-This microlibrary builds summary datasets across all or many runs within a Weights and Biases project, reporting statistics from the end of each run as opposed to over time (over epochs) within those runs. This can be used to summarize inputs and results as a tabular data artifact across experiments within a project, supporting iterative model refinement or model selection. For example, users trying different dropout rates or L2 penalty inside a neural network for regularization may be logging those rates within Weights and Biases' config object (`wandb.config`). The wandb online interface may show those runs in a table with the final results from each but one may wish to visualize  information from that table by building a bar chart showing the final validation / training set F1 scores at different dropout rates. As there is no "export table to CSV" option within wandb, one would need to write a custom script to download this data via Python. This microlibrary / command line tool makes it easy to download those results into a flat table for that post-hoc analysis, making it easier to generate results like the following:
-
-| L2 Penalty | Final Validation Accuracy | Final Training Accuracy |
-|------------|---------------------------|-------------------------|
-| 0.001      | 73%                       | 87%                     |
-| 0.01       | 73%                       | 75%                     |
-| 0.1        | 56%                       | 55%                     |
-
-<br>
-
 Examples
 ----------------------------------------------------------------------------------------------------
 Downloading all runs from [sampottinger/who-wrote-this](https://app.wandb.ai/sampottinger/who-wrote-this) via the command line tool to a CSV file:
@@ -70,6 +57,18 @@ import wandb_summarizer.download
 run_info = wandb_summarizer.download.get_results('sampottinger/who-wrote-this')
 print(run_info[0]['url'])
 ```
+
+<br>
+
+Purpose
+----------------------------------------------------------------------------------------------------
+This microlibrary builds summary datasets across all or many runs within a Weights and Biases project, reporting statistics from the end of each run as opposed to over time (over epochs) within those runs. This can be used to summarize inputs and results as a tabular data artifact across experiments within a project, supporting iterative model refinement or model selection. For example, users trying different dropout rates or L2 penalty inside a neural network for regularization may be logging those rates within Weights and Biases' config object (`wandb.config`). The wandb online interface may show those runs in a table with the final results from each but one may wish to visualize  information from that table by building a bar chart showing the final validation / training set F1 scores at different dropout rates. As there is no "export table to CSV" option within wandb, one would need to write a custom script to download this data via Python. This microlibrary / command line tool makes it easy to download those results into a flat table for that post-hoc analysis, making it easier to generate results like the following:
+
+| L2 Penalty | Final Validation Accuracy | Final Training Accuracy |
+|------------|---------------------------|-------------------------|
+| 0.001      | 73%                       | 87%                     |
+| 0.01       | 73%                       | 75%                     |
+| 0.1        | 56%                       | 55%                     |
 
 <br>
 
