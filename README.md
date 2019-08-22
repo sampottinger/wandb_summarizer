@@ -1,6 +1,6 @@
 W&B Summarizer
 ====================================================================================================
-A humble unofficial microlibrary / command line tool for summarizing data within [Weights and Biases](https://app.wandb.ai/) across runs including a tiny tool to download wandb data as a CSV file. This is not endorsed or affiliated with Weights and Biases.
+A humble unofficial microlibrary / command line tool for summarizing data within [Weights and Biases](https://app.wandb.ai/) across runs including a tiny tool to download ("export") wandb data as a CSV file. This is not endorsed or affiliated with Weights and Biases.
 
 <br>
 
