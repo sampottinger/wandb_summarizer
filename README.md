@@ -19,7 +19,7 @@ Usage
 This package is usable via the command line or from another Python script. The command line tool takes the following form:
 
 ```
-$ wandb-summarizer-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]
+$ wandb-summarizer-to-csv [username/project name] [output loc] [optional verbose flag] [optional query parameters]
 ```
 
 Most uses of the microlibrary from another Python script will want to use `wandb_summarizer.download.get_results` which takes the following parameters:
@@ -30,6 +30,7 @@ Most uses of the microlibrary from another Python script will want to use `wandb
  - `logger` (logger.Logger): The logger with which to report debug information. If None or not provided, no messages will be logged. Defaults to None.
 
 <br>
+
 
 Purpose
 ----------------------------------------------------------------------------------------------------
@@ -48,7 +49,7 @@ Examples
 Downloading all runs from [sampottinger/who-wrote-this](https://app.wandb.ai/sampottinger/who-wrote-this) via the command line tool to a CSV file:
 
 ```
-$ wandb-summary-export sampottinger/who-wrote-this who_wrote_this.csv
+$ wandb-summarizer-to-csv sampottinger/who-wrote-this who_wrote_this.csv
 ```
 
 <br>
@@ -56,7 +57,7 @@ $ wandb-summary-export sampottinger/who-wrote-this who_wrote_this.csv
 Downloading select runs from [sampottinger/who-wrote-this](https://app.wandb.ai/sampottinger/who-wrote-this) via the command line tool to a CSV file with no debug logging:
 
 ```
-$ wandb-summary-export sampottinger/who-wrote-this who_wrote_this.csv f "{\"config.corpusCol\": \"description\"}"
+$ wandb-summarizer-to-csv sampottinger/who-wrote-this who_wrote_this.csv f "{\"config.corpusCol\": \"description\"}"
 ```
 
 <br>
@@ -64,9 +65,9 @@ $ wandb-summary-export sampottinger/who-wrote-this who_wrote_this.csv f "{\"conf
 Downloading run information from [sampottinger/who-wrote-this](https://app.wandb.ai/sampottinger/who-wrote-this) within another Python script:
 
 ```
-import wandb_summary.download
+import wandb_summarizer.download
 
-run_info = wandb_summary.download.get_results('sampottinger/who-wrote-this')
+run_info = wandb_summarizer.download.get_results('sampottinger/who-wrote-this')
 print(run_info[0]['url'])
 ```
 
@@ -75,6 +76,21 @@ print(run_info[0]['url'])
 Development Standards
 ----------------------------------------------------------------------------------------------------
 All top level methods should be unit tested and have [Google style guide conformant docstrings](http://google.github.io/styleguide/pyguide.html). Please conform to the [Google Python Style Guide](http://google.github.io/styleguide/pyguide.html) when possible.
+
+<br>
+
+Testing
+----------------------------------------------------------------------------------------------------
+Automated tests are available and runnable via `nosetests` like so:
+
+```
+$ nosetests
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 1.331s
+
+OK
+```
 
 <br>
 

@@ -1,13 +1,13 @@
 """Simple script to generate a summary CSV across runs within a wandb project.
 
-Build datasets (such as CSV files) of summary information across all or many runs within a
-Weights and Biases project. This can be used to summarize inputs and observations across experiments
-within a project, supporting iterative model refinement or model selection. To motivate the script
-consider that, for model selection, it may be useful to have a table which summarizes the results of
-all runs given the parameters for that run. For example, users trying different dropout rates may be
-logging those rates within Weights and Biases' config object (wandb.config). To see how that
-impacted training and validation error, one would want to get the final errors across all runs
-versus the dropout rates attempted.
+Build datasets as CSV files of summary information across all or many runs within a Weights and
+Biases project. This can be used to summarize inputs and observations across experiments within a
+project, supporting iterative model refinement or model selection. To motivate the script consider
+that, for model selection, it may be useful to have a table which summarizes the results of all runs
+given the parameters for that run. For example, users trying different dropout rates may be logging
+those rates within Weights and Biases' config object (wandb.config). To see how that impacted
+training and validation error, one would want to get the final errors across all runs versus the
+dropout rates attempted.
 
 Released under the MIT license (see LICENSE.md).
 """
@@ -19,7 +19,7 @@ import sys
 
 import wandb_summarizer.download
 
-USAGE_STR = 'wandb-summarizer-export [username/project name] [output loc] [optional verbose flag] [optional query parameters]'
+USAGE_STR = 'wandb-summarizer-to-csv [username/project name] [output loc] [optional verbose flag] [optional query parameters]'
 MIN_NUM_ARGS = 2
 MAX_NUM_ARGS = 4
 TRUE_VALUES = ['y', 't', 'yes', 'true']

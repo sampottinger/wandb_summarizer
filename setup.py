@@ -15,6 +15,6 @@ setuptools.setup(
       'wandb',
     ],
     entry_points = {
-        'console_scripts': ['wandb-summarizer-export=wandb_summarizer.export:main'],
+        'console_scripts': ['wandb-summarizer-to-csv=wandb_summarizer.export:main'],
     }
 )
